@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type="text"],input[type="password"],input[type="email"]{
+input[type="text"],
+input[type="password"],
+input[type="email"] {
     @apply w-full border my-1 py-2 px-3 rounded-2xl;
 }
 
-button.login-btn{
+button.btn {
     @apply w-full bg-primary p-2 rounded-2xl text-white;
 }
