@@ -7,12 +7,16 @@ const User = require("./models/User");
 const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const download = require("image-downloader");
+const multer = require("multer");
+const fs = require("fs");
 require("dotenv").config();
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "aljdfa;lkfda;lfkjda;lsfkjalk;f";
 
 app.use(express.json());
+//endpoint for uploads folder -- serves everythings from uploads folder
+app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(cookieParser());
 app.use(
   cors({
@@ -89,7 +93,24 @@ app.post("/upload-by-link", async (req, res) => {
     .then(() => res.json(newfileName))
     .catch((err) => console.error(err));
 });
+
+const photosMiddleware = multer({ dest: "uploads/" });
+app.post("/upload", photosMiddleware.array("photos", 100), (req, res) => {
+  const uploadedFiles = [];
+  for (let i = 0; i < req.files.length; i++) {
+    const { path, originalname } = req.files[i];
+    const parts = originalname.split(".");
+    const ext = parts[parts.length - 1];
+    const newPath = path + "." + ext;
+    fs.renameSync(path, newPath);
+    uploadedFiles.push(newPath.replace("uploads\\", ""));
+  }
+
+  res.json(uploadedFiles);
+});
+
 app.post("/logout", (req, res) => {
   res.cookie("token", "").json("logged out");
 });
+
 app.listen(8080);
