@@ -1,38 +1,32 @@
-import "./App.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import MainPage from "./pages/MainPage";
-import LoginPage from "./pages/LoginPage";
-import Layout from "./Layout";
-import RegisterPage from "./pages/RegisterPage";
 import axios from "axios";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Layout from "./Layout";
 import UserContextProvider from "./UserContext";
 import AccountPage from "./pages/AccountPage";
+import LoginPage from "./pages/LoginPage";
+import MainPage from "./pages/MainPage";
+import RegisterPage from "./pages/RegisterPage";
 
 axios.defaults.baseURL = "http://localhost:8080";
 axios.defaults.withCredentials = true;
 
 function App() {
-    return (
-        <UserContextProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Layout />}>
-                        <Route index element={<MainPage />} />
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/register" element={<RegisterPage />} />
-                        <Route
-                            path="/account/:subpage?"
-                            element={<AccountPage />}
-                        />
-                        <Route
-                            path="/account/:subpage/:action"
-                            element={<AccountPage />}
-                        />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </UserContextProvider>
-    );
+  return (
+    <UserContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<MainPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/account/:subpage?" element={<AccountPage />} />
+            <Route path="/account/:subpage/:action" element={<AccountPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </UserContextProvider>
+  );
 }
 
 export default App;
