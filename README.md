@@ -1,2 +1,3 @@
 # FULL STACK BOOKING WEB APP
-- MERN stack
+
+- This app is Build using Reactjs, Express, Mongodb, Nodejs, Tailwind CSS, Vite.

@@ -44,9 +44,9 @@ const PlacesFormPage = () => {
       </>
     );
   };
-  const addNewPlace = async (ev) => {
+  const savePlace = async (ev) => {
     ev.preventDefault();
-    await axios.post("/places", {
+    const placeData = {
       title,
       address,
       addedPhotos,
@@ -56,8 +56,17 @@ const PlacesFormPage = () => {
       checkIn,
       checkOut,
       maxGuests,
-    });
-    setRedirect(true);
+    };
+    if (id) {
+      await axios.put("/places", {
+        id,
+        ...placeData,
+      });
+      setRedirect(true);
+    } else {
+      await axios.post("/places", placeData);
+      setRedirect(true);
+    }
   };
   if (redirect) {
     return <Navigate to={"/account/places"} />;
@@ -66,7 +75,7 @@ const PlacesFormPage = () => {
   return (
     <div className="">
       <AccountNav />
-      <form onSubmit={addNewPlace}>
+      <form onSubmit={savePlace}>
         {preInput(
           "Title",
           " Title for your place should be something catchy for the advertisement"
