@@ -51,35 +51,35 @@ const PlacePage = () => {
   }
   return (
     <div className="mt-8 bg-gray-100 -mx-8 px-8 pt-8">
-      <h1 className="text-3xl">{place.title} </h1>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href={"https://maps.google.com/?q=" + place.address}
-        className="my-2 flex gap-1  font-semibold underline">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-          />
-        </svg>
+      <div className="relative w-10/12 flex mx-auto flex-col">
+        <h1 className="text-3xl ">{place.title} </h1>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={"https://maps.google.com/?q=" + place.address}
+          className="my-2 flex gap-1  font-semibold underline ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+            />
+          </svg>
 
-        {place.address}
-      </a>
-      <div className="relative">
-        <div className="grid gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden">
+          {place.address}
+        </a>
+        <div className="grid mt-4 gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden">
           <div className="">
             {place.photos?.[0] && (
               <div className="">
@@ -106,7 +106,7 @@ const PlacePage = () => {
               {place.photos?.[2] && (
                 <img
                   onClick={() => setShowAllPhotos(true)}
-                  className="aspect-square object-cover cursor-pointer relative top-2"
+                  className="aspect-square object-fill cursor-pointer relative top-2"
                   src={"http://localhost:8080/uploads/" + place.photos[2]}
                   alt=""
                 />
@@ -134,7 +134,7 @@ const PlacePage = () => {
         </button>
       </div>
 
-      <div className="mt-8 mb-4 gap-8 grid grid-cols-1 md:grid-cols-[2fr_1fr]">
+      <div className="mt-8 mb-4 px-32 gap-8 grid grid-cols-1 md:grid-cols-[2fr_1fr]">
         <div>
           <div className="my-4">
             <h2 className="font-semibold text-2xl">Description</h2>
@@ -150,7 +150,7 @@ const PlacePage = () => {
           <BookingWidget place={place} />
         </div>
       </div>
-      <div className="bg-white -mx-8 px-8 py-8 border-t">
+      <div className="bg-white -mx-9 px-40 py-8 border-t">
         <div className="">
           <h2 className="font-semibold text-2xl">Extra Info</h2>
         </div>
