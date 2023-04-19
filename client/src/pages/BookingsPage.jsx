@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AccountNav from "../AccountNav";
-import BookingDates from "../BookingDates";
-import PlaceImg from "../PlaceImg";
+import AccountNav from "../components/AccountNav";
+import BookingDates from "../components/BookingDates";
+import PlaceImg from "../components/PlaceImg";
 
 const BookingsPage = () => {
   const [bookings, setBookings] = useState([]);
@@ -20,7 +20,7 @@ const BookingsPage = () => {
           bookings.map((booking) => (
             <Link
               to={`/account/bookings/${booking._id}`}
-              className="flex gap-4 bg-gray-200 rounded-2xl overflow-hidden h-40 ">
+              className="flex gap-4 bg-gray-200 rounded-2xl overflow-hidden h-40 mb-4">
               <div className="w-48">
                 <PlaceImg place={booking.place} />
               </div>
