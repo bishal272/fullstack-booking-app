@@ -5,7 +5,7 @@ const MainPage = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
     axios.get("/places").then(({ data }) => {
-      setPlaces([...data, ...data, ...data, ...data, ...data]);
+      setPlaces(data);
     });
   }, []);
   return (
