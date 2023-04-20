@@ -132,7 +132,7 @@ app.post("/api/upload-by-link", async (req, res) => {
 });
 
 const photosMiddleware = multer({ dest: "/tmp" });
-app.post("/upload", photosMiddleware.array("photos", 100), async (req, res) => {
+app.post("/api/upload", photosMiddleware.array("photos", 100), async (req, res) => {
   // * the array given to the end point is used in the middleware multer function.
   const uploadedFiles = [];
   // * putting proper filename with extension after downloading for each photo uploaded
