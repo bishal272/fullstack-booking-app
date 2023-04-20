@@ -28,7 +28,7 @@ const PlaceGalary = ({ place }) => {
           {place?.photos?.length > 0 &&
             place.photos.map((photo) => (
               <div>
-                <img src={"http://localhost:8080/uploads/" + photo} alt="" />
+                <Image src={photo} alt="" />
               </div>
             ))}
         </div>
