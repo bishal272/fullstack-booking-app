@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Image from "../components/Image";
 
 const MainPage = () => {
   const [places, setPlaces] = useState([]);
@@ -16,9 +17,9 @@ const MainPage = () => {
           <Link to={"/place/" + place._id}>
             {place.photos?.[0] && (
               <div className="bg-gray-500 mb-2 rounded-2xl flex ">
-                <img
+                <Image
                   className="rounded-2xl object-cover aspect-square "
-                  src={"http://localhost:8080/uploads/" + place.photos?.[0]}
+                  src={place.photos?.[0]}
                   alt=""
                   srcset=""
                 />
