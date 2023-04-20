@@ -22,7 +22,7 @@ const PlacePage = () => {
 
   return (
     <div className="mt-8 bg-gray-100 -mx-8 px-8 pt-8">
-      <div className="relative w-10/12 flex mx-auto flex-col">
+      <div className=" w-10/12 flex mx-auto flex-col">
         <h1 className="text-3xl ">{place.title} </h1>
         <AddressLink>{place.address}</AddressLink>
         <PlaceGalary place={place} />

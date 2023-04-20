@@ -36,7 +36,7 @@ const PlaceGalary = ({ place }) => {
     );
   }
   return (
-    <div className="grid mt-4 gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden">
+    <div className="relative grid mt-4 gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden">
       <div className="">
         {place.photos?.[0] && (
           <div className="">
