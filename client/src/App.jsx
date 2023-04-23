@@ -1,17 +1,16 @@
 import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Layout from "./Layout";
 import UserContextProvider from "./UserContext";
 import AccountPage from "./pages/AccountPage";
+import BookingPage from "./pages/BookingPage";
+import BookingsPage from "./pages/BookingsPage";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
+import PlacePage from "./pages/PlacePage";
 import PlacesFormPage from "./pages/PlacesFormPage";
 import PlacesPage from "./pages/PlacesPage";
 import RegisterPage from "./pages/RegisterPage";
-import PlacePage from "./pages/PlacePage";
-import BookingsPage from "./pages/BookingsPage";
-import BookingPage from "./pages/BookingPage";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 axios.defaults.withCredentials = true;

@@ -20,7 +20,7 @@ export default function Header() {
           />
         </svg>
 
-        <span className="font-bold text-xl">Airbnb</span>
+        <span className="font-bold text-xl">Firebnb</span>
       </Link>
       <div className="flex border border-gray-300 rounded-full gap-2 py-2 px-4 shadow-md shadow-grey-200">
         <div>Anywhere</div>
