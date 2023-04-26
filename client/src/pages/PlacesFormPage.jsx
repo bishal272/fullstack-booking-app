@@ -23,7 +23,7 @@ const PlacesFormPage = () => {
     if (!id) {
       return;
     }
-    axios.get("/places/" + id).then((response) => {
+    axios.get("/api/places/" + id).then((response) => {
       const { data } = response;
       setTitle(data.title);
       setAddress(data.address);
@@ -61,13 +61,13 @@ const PlacesFormPage = () => {
       price,
     };
     if (id) {
-      await axios.put("/places", {
+      await axios.put("/api/places", {
         id,
         ...placeData,
       });
       setRedirect(true);
     } else {
-      await axios.post("/places", placeData);
+      await axios.post("/api/places", placeData);
       setRedirect(true);
     }
   };

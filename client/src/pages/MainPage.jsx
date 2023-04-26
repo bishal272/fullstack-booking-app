@@ -6,7 +6,7 @@ import Image from "../components/Image";
 const MainPage = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
-    axios.get("/places").then(({ data }) => {
+    axios.get("/api/places").then(({ data }) => {
       setPlaces(data);
     });
   }, []);
